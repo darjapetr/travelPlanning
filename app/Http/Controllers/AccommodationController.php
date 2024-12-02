@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Accommodation;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Foundation\Application;
@@ -16,6 +17,19 @@ class AccommodationController extends Controller
      */
     public function index(): Factory|View|Application
     {
-        return view('accommodation');
+        $accommodations = Accommodation::with('images')->inRandomOrder()->get();
+        return view('accommodation', compact('accommodations'));
+    }
+
+    /**
+     * Show one accommodation info page.
+     *
+     * @param $id
+     * @return View|Factory|Application
+     */
+    public function show($id): View|Factory|Application
+    {
+        $accommodation = Accommodation::with('images')->findOrFail($id);
+        return view('accommodation.show', compact('accommodation'));
     }
 }
