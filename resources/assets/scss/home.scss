@@ -1,0 +1,171 @@
+.home-page {
+    padding: 20px;
+}
+
+.about-section {
+    background-image: url('/images/background.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 550px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    border-radius: 30px;
+}
+
+.about-section h2 {
+    font-size: 50px;
+    margin-bottom: 20px;
+    color: #0A2C47;
+    text-shadow: -2px -3px 4px rgba(255, 255, 255, 0.6);
+}
+
+.get-started-btn {
+    background-color: #1A7BC9;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 20px;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+}
+
+.get-started-btn:hover {
+    background-color: #0A2C47;
+}
+
+.get-started-btn .nav-link {
+    color: white;
+    text-decoration: none;
+}
+
+.destinations-section {
+    margin: 50px 30px;
+}
+
+.destinations-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.destinations-header h3 {
+    font-size: 28px;
+    color: #0A2C47;
+    text-align: center;
+}
+
+.destinations-header .explore-link {
+    position: absolute;
+    right: 0;
+    font-size: 16px;
+    color: #1A7BC9;
+    text-decoration: none;
+}
+
+.destinations-cards {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.destination-card {
+    width: calc(33.33% - 20px);
+    text-align: center;
+}
+
+.destination-card img {
+    width: 100%;
+    border-radius: 10px;
+    height: auto;
+}
+
+.destination-card p {
+    font-size: 16px;
+    color: #333;
+    margin-top: 10px;
+}
+
+.explore-section {
+    margin: 50px 0;
+    text-align: center;
+}
+
+.explore-cards {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 20px;
+}
+
+.explore-card {
+    width: 200px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.explore-card h4 {
+    font-size: 18px;
+    color: #1565c0;
+    margin-bottom: 10px;
+}
+
+.explore-card p {
+    font-size: 14px;
+    color: #666;
+}
+
+.guide-section {
+    margin: 50px 0;
+    text-align: center;
+}
+
+.guide-steps {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+    gap: 20px;
+}
+
+.guide-card {
+    width: calc(33.33% - 20px);
+    padding: 20px;
+    background-color: #e3f2fd;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.guide-card h1 {
+    font-size: 24px;
+    color: #1A7BC9;
+    margin-bottom: 10px;
+}
+
+.guide-card h3 {
+    font-size: 16px;
+    color: #333;
+}
+
+.guide-card.highlighted {
+    background-color: #1A7BC9;
+    color: white;
+}
+
+.guide-card.highlighted h1,
+.guide-card.highlighted h3 {
+    color: white;
+}
+

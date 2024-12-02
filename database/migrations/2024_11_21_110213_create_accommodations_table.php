@@ -14,10 +14,15 @@ return new class extends Migration
         Schema::create('accommodations', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('location');
+            $table->string('city_en');
+            $table->string('city_lt');
+            $table->string('country_en');
+            $table->string('country_lt');
+            $table->string('address');
             $table->enum('type', ['hotel', 'apartments', 'glamping']);
             $table->decimal('price', 8, 2);
-            $table->text('description')->nullable();
+            $table->text('description_en')->nullable();
+            $table->text('description_lt')->nullable();
             $table->timestamps();
         });
     }

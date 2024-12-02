@@ -11,9 +11,7 @@
 
     <title>{{ config('app.name') }}</title>
 
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
+    <!-- Style -->
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 
     <!-- Scripts -->
@@ -22,7 +20,9 @@
 <body>
 
 <div id="app">
+    @include('helpers.header')
     @yield('content')
+    @include('helpers.footer')
 </div>
 
 </body>

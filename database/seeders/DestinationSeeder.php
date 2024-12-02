@@ -15,9 +15,12 @@ class DestinationSeeder extends Seeder
     {
         DB::table('destinations')->insert([
             [
-                'name' => 'Milan',
-                'location' => 'Italy',
-                'description' => 'A beautiful city.',
+                'city_en' => 'Milan',
+                'country_en' => 'Italy',
+                'description_en' => 'A beautiful city.',
+                'city_lt' => 'Milanas',
+                'country_lt' => 'Italija',
+                'description_lt' => 'Gražus miestas.',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],

@@ -3,10 +3,9 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return 'Welcome to the home page';
-});
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/destinations', [App\Http\Controllers\DestinationController::class, 'index'])->name('destinations');
+Route::get('/activities', [App\Http\Controllers\ActivityController::class, 'index'])->name('activities');
+Route::get('/accommodation', [App\Http\Controllers\AccommodationController::class, 'index'])->name('accommodation');
 
 Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
