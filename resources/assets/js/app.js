@@ -1,4 +1,4 @@
-import './bootstrap';
+import 'bootstrap';
 
 document.addEventListener('DOMContentLoaded', function() {
     const logoutLink = document.querySelector('.logout-link');

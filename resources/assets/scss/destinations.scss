@@ -1,0 +1,39 @@
+.destinations-page {
+    margin: 30px;
+}
+
+.destinations-page .destination-cards {
+    width: 80%;
+    height: auto;
+}
+
+.destinations-page .destination-card img {
+    height: 220px;
+    width: 350px;
+}
+
+.destinations-page .destination-card p {
+    font-size: 18px;
+}
+
+.destinations-page .destination-card a {
+    text-decoration: none;
+}
+
+.destination-details {
+    text-align: center;
+    padding: 20px;
+}
+
+.carousel {
+    margin: 20px auto;
+    max-width: 800px;
+}
+
+.description {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    text-align: left;
+}

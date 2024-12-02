@@ -18,12 +18,10 @@
     <script src="{{ mix('js/app.js') }}"></script>
 </head>
 <body>
-
+@include('helpers.header')
 <div id="app">
-    @include('helpers.header')
     @yield('content')
-    @include('helpers.footer')
 </div>
-
+@include('helpers.footer')
 </body>
 </html>
