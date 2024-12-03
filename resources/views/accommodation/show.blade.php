@@ -33,5 +33,13 @@
             <h2>Description</h2>
             <p>{{ $accommodation->description_en }}</p>
         </div>
+        @if(auth()->user() && auth()->user()->isAdmin())
+        <a href="{{ route('$accommodation.edit', $accommodation->id) }}" class="btn btn-warning">Modify</a>
+        <form action="{{ route('$accommodation.destroy', $accommodation->id) }}" method="POST" style="display:inline;">
+            @csrf
+            @method('DELETE')
+            <button type="submit" class="btn btn-danger">Delete</button>
+        </form>
+        @endif
     </div>
 @endsection

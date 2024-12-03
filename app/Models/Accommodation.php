@@ -11,6 +11,24 @@ class Accommodation extends Model
     use HasFactory;
 
     /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
+    protected $fillable = [
+        'name',
+        'city_en',
+        'country_en',
+        'description_en',
+        'city_lt',
+        'country_lt',
+        'description_lt',
+        'type',
+        'price',
+        'address',
+    ];
+
+    /**
      * Link images with Accommodation instances
      *
      * @return MorphMany

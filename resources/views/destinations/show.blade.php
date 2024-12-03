@@ -25,7 +25,7 @@
             <h2>Description</h2>
             <p>{{ $destination->description_en }}</p>
         </div>
-        @if(auth()->user() && auth()->user()->isAdmin()) <!-- Check if user is admin -->
+        @if(auth()->user() && auth()->user()->isAdmin())
         <a href="{{ route('destinations.edit', $destination->id) }}" class="btn btn-warning">Modify</a>
         <form action="{{ route('destinations.destroy', $destination->id) }}" method="POST" style="display:inline;">
             @csrf

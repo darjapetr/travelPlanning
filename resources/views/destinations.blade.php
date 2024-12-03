@@ -3,7 +3,7 @@
     <div class="destinations-page">
         <div class="destinations-header">
             <h3>All destinations</h3>
-            @if(auth()->user() && auth()->user()->isAdmin()) <!-- Check if user is admin -->
+            @if(auth()->user() && auth()->user()->isAdmin())
             <a href="{{ route('destinations.create') }}" class="btn btn-primary">Add New Destination</a>
             @endif
         </div>
@@ -18,7 +18,7 @@
                         @endif
                         <p>{{ $destination->city_en }}, {{ $destination->country_en }}</p>
                     </a>
-                    @if(auth()->user() && auth()->user()->isAdmin()) <!-- Check if user is admin -->
+                    @if(auth()->user() && auth()->user()->isAdmin())
                     <a href="{{ route('destinations.edit', $destination->id) }}" class="btn btn-warning">Modify</a>
                     <form action="{{ route('destinations.destroy', $destination->id) }}" method="POST" style="display:inline;">
                         @csrf
