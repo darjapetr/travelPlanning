@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Activity;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Foundation\Application;
@@ -16,6 +17,19 @@ class ActivityController extends Controller
      */
     public function index(): Factory|View|Application
     {
-        return view('activities');
+        $activities = Activity::with('images')->inRandomOrder()->get();
+        return view('activities', compact('activities'));
+    }
+
+    /**
+     * Show one destination info page.
+     *
+     * @param $id
+     * @return View|Factory|Application
+     */
+    public function show($id): View|Factory|Application
+    {
+        $activity = Activity::with('images')->findOrFail($id);
+        return view('activities.show', compact('activity'));
     }
 }
