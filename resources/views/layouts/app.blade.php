@@ -20,6 +20,11 @@
 <body>
 @include('helpers.header')
 <div id="app">
+    @if(session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
     @yield('content')
 </div>
 @include('helpers.footer')

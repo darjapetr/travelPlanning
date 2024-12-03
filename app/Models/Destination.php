@@ -11,6 +11,20 @@ class Destination extends Model
     use HasFactory;
 
     /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
+    protected $fillable = [
+        'city_en',
+        'country_en',
+        'description_en',
+        'city_lt',
+        'country_lt',
+        'description_lt',
+    ];
+
+    /**
      * Link images with Destination instances
      *
      * @return MorphMany

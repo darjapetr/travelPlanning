@@ -139,3 +139,53 @@ header {
     text-align: center;
     padding: 10px 0;
 }
+
+.btn {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    text-decoration: none;
+    color: white;
+}
+
+.btn-primary, .btn-warning, .btn-danger {
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary, .btn-warning {
+    background-color: #1A7BC9;
+}
+
+.btn-primary:hover, .btn-warning:hover {
+    background-color: #0A2C47;
+    color: white;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+}
+
+.btn-danger:hover {
+    background-color: #950412;
+}
+
+.destination-form {
+    width: 90%;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
