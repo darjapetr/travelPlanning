@@ -23,7 +23,7 @@ class AccommodationController extends Controller
     }
 
     /**
-     * Show one accommodation info page.
+     * Show one accommodations info page.
      *
      * @param $id
      * @return View|Factory|Application
@@ -31,21 +31,21 @@ class AccommodationController extends Controller
     public function show($id): View|Factory|Application
     {
         $accommodation = Accommodation::with('images')->findOrFail($id);
-        return view('accommodation.show', compact('accommodation'));
+        return view('accommodations.show', compact('accommodation'));
     }
 
     /**
-     * Show accommodation creating form.
+     * Show accommodations creating form.
      *
      * @return Factory|View|Application
      */
     public function create(): Factory|View|Application
     {
-        return view('accommodation.form');
+        return view('accommodations.form');
     }
 
     /**
-     * Create new accommodation.
+     * Create new accommodations.
      *
      * @param Request $request
      * @return RedirectResponse
@@ -79,18 +79,18 @@ class AccommodationController extends Controller
     }
 
     /**
-     * Show accommodation editing form.
+     * Show accommodations editing form.
      *
      * @param Accommodation $accommodation
      * @return View|Factory|Application
      */
     public function edit(Accommodation $accommodation): View|Factory|Application
     {
-        return view('accommodation.form', compact('accommodation'));
+        return view('accommodations.form', compact('accommodation'));
     }
 
     /**
-     * Update selected accommodation.
+     * Update selected accommodations.
      *
      * @param Request $request
      * @param Accommodation $accommodation
@@ -125,7 +125,7 @@ class AccommodationController extends Controller
     }
 
     /**
-     * Delete selected accommodation.
+     * Delete selected accommodations.
      *
      * @param Accommodation $accommodation
      * @return RedirectResponse

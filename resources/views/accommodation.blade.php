@@ -18,6 +18,23 @@
                         @endif
                         <p>{{ $accommodation->name }}</p>
                     </a>
+                    @if(auth()->user() && !auth()->user()->isAdmin())
+                        @php
+                            $liked = auth()->user()->likeLists()->where('item_type', 'accommodation')->where('item_id', $accommodation->id)->exists();
+                        @endphp
+
+                        @if ($liked)
+                            <form action="{{ route('unlike', ['type' => 'accommodation', 'id' => $accommodation->id]) }}" method="POST">
+                                @csrf
+                                <button type="submit" class="btn btn-danger">Unlike</button>
+                            </form>
+                        @else
+                            <form action="{{ route('like', ['type' => 'accommodation', 'id' => $accommodation->id]) }}" method="POST">
+                                @csrf
+                                <button type="submit" class="btn btn-primary">Like</button>
+                            </form>
+                        @endif
+                    @endif
                     @if(auth()->user() && auth()->user()->isAdmin())
                         <a href="{{ route('accommodation.edit', $accommodation->id) }}" class="btn btn-warning">Modify</a>
                         <form action="{{ route('accommodation.destroy', $accommodation->id) }}" method="POST" style="display:inline;">

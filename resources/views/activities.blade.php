@@ -18,6 +18,23 @@
                         @endif
                         <p>{{ $activity->name_en }}</p>
                     </a>
+                    @if(auth()->user() && !auth()->user()->isAdmin())
+                        @php
+                            $liked = auth()->user()->likeLists()->where('item_type', 'activity')->where('item_id', $activity->id)->exists();
+                        @endphp
+
+                        @if ($liked)
+                            <form action="{{ route('unlike', ['type' => 'activity', 'id' => $activity->id]) }}" method="POST">
+                                @csrf
+                                <button type="submit" class="btn btn-danger">Unlike</button>
+                            </form>
+                        @else
+                            <form action="{{ route('like', ['type' => 'activity', 'id' => $activity->id]) }}" method="POST">
+                                @csrf
+                                <button type="submit" class="btn btn-primary">Like</button>
+                            </form>
+                        @endif
+                    @endif
                     @if(auth()->user() && auth()->user()->isAdmin())
                         <a href="{{ route('activities.edit', $activity->id) }}" class="btn btn-warning">Modify</a>
                         <form action="{{ route('activities.destroy', $activity->id) }}" method="POST" style="display:inline;">

@@ -31,7 +31,9 @@
                                 {{ Auth::user()->name }}
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="#">{{ __('') }}</a></li>
+                                @if(!auth()->user()->isAdmin())
+                                    <li><a class="dropdown-item" href="{{ route('likelist.index') }}">{{ __('Like List') }}</a></li>
+                                @endif
                                 <li><a class="dropdown-item" href="#">{{__('Account settings')}}</a></li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li>

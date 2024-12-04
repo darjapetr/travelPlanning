@@ -18,6 +18,23 @@
                         @endif
                         <p>{{ $destination->city_en }}, {{ $destination->country_en }}</p>
                     </a>
+                    @if(auth()->user() && !auth()->user()->isAdmin())
+                        @php
+                            $liked = auth()->user()->likeLists()->where('item_type', 'destination')->where('item_id', $destination->id)->exists();
+                        @endphp
+
+                        @if ($liked)
+                            <form action="{{ route('unlike', ['type' => 'destination', 'id' => $destination->id]) }}" method="POST">
+                                @csrf
+                                <button type="submit" class="btn btn-danger">Unlike</button>
+                            </form>
+                        @else
+                            <form action="{{ route('like', ['type' => 'destination', 'id' => $destination->id]) }}" method="POST">
+                                @csrf
+                                <button type="submit" class="btn btn-primary">Like</button>
+                            </form>
+                        @endif
+                    @endif
                     @if(auth()->user() && auth()->user()->isAdmin())
                     <a href="{{ route('destinations.edit', $destination->id) }}" class="btn btn-warning">Modify</a>
                     <form action="{{ route('destinations.destroy', $destination->id) }}" method="POST" style="display:inline;">

@@ -38,4 +38,14 @@ class Activity extends Model
     {
         return $this->morphMany(Image::class, 'imageable');
     }
+
+    /**
+     * Link like list with Activity instances.
+     *
+     * @return MorphMany
+     */
+    public function likes(): MorphMany
+    {
+        return $this->morphMany(LikeList::class, 'item', 'item_type', 'item_id');
+    }
 }
