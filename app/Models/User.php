@@ -73,10 +73,22 @@ class User extends Authenticatable
     }
 
     /**
+     * Define the relationship with the LikeList model.
+     *
      * @return HasMany
      */
     public function likeLists(): HasMany
     {
         return $this->hasMany(LikeList::class);
+    }
+
+    /**
+     * Define the relationship with the Trip model.
+     *
+     * @return HasMany
+     */
+    public function trips(): HasMany
+    {
+        return $this->hasMany(Trip::class);
     }
 }

@@ -1,0 +1,88 @@
+.trips-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.trips-container .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    background-color: rgb(244, 244, 244);
+}
+
+.header h3 {
+    font-size: 2rem;
+    margin: 0;
+    text-align: center;
+    flex-grow: 1;
+}
+
+.add-new-btn {
+    background-color: #1A7BC9;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 20px;
+    font-size: 16px;
+}
+
+.add-new-btn:hover {
+    background-color: #0056b3;
+    color: white;
+}
+
+.trips-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.trip-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.trip-card:hover {
+    transform: translateY(-5px);
+}
+
+.trip-card h2 {
+    font-size: 1.6rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.trip-card p {
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+.edit-btn, .delete-btn {
+    background-color: #1A7BC9;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+.edit-btn:hover, .delete-btn:hover {
+    background-color: #0056b3;
+}
+
+.delete-btn {
+    background-color: #dc3545;
+}
+
+.delete-btn:hover {
+    background-color: #c82333;
+}
