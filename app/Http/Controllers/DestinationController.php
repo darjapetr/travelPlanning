@@ -14,11 +14,24 @@ class DestinationController extends Controller
     /**
      * Show 'Destinations' page.
      *
+     * @param Request $request
      * @return Factory|View|Application
      */
-    public function index(): Factory|View|Application
+    public function index(Request $request): Factory|View|Application
     {
-        $destinations = Destination::with('images')->inRandomOrder()->get();
+        $query = Destination::with('images');
+
+        if ($request->has('search') && $request->search) {
+            $search = $request->search;
+            $query->where(function ($q) use ($search) {
+                $q->where('country_en', 'like', "%{$search}%")
+                    ->orWhere('country_lt', 'like', "%{$search}%")
+                    ->orWhere('city_en', 'like', "%{$search}%")
+                    ->orWhere('city_lt', 'like', "%{$search}%");
+            });
+        }
+
+        $destinations = $query->inRandomOrder()->get();
         return view('destinations', compact('destinations'));
     }
 

@@ -5,10 +5,23 @@
             <h3>{{ __('messages.AllAct') }}</h3>
             @if(auth()->user() && auth()->user()->isAdmin())
                 <a href="{{ route('activities.create') }}" class="btn btn-primary new-btn">{{ __('messages.AddNewAct') }}</a>
+            @else
+                <div class="search-field">
+                    <form method="GET" action="{{ route('activities') }}">
+                        <input
+                            type="text"
+                            name="search"
+                            placeholder="{{ __('messages.Search') }} "
+                            value="{{ request('search') }}"
+                            class="form-control"
+                        >
+                        <button type="submit" class="btn btn-primary"> > </button>
+                    </form>
+                </div>
             @endif
         </div>
         <div class="travel-cards">
-            @foreach($activities as $activity)
+            @forelse($activities as $activity)
                 <div class="travel-card">
                     <a href="{{ route('activities.show', $activity->id) }}">
                         @if($activity->images->isNotEmpty())
@@ -44,8 +57,9 @@
                         </form>
                     @endif
                 </div>
-
-            @endforeach
+            @empty
+                <h3 class="no-results">{{ __('messages.NoAct') }}</h3>
+            @endforelse
         </div>
     </div>
 @endsection

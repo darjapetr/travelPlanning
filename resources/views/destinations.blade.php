@@ -5,10 +5,23 @@
             <h3>{{ __('messages.AllDest') }}</h3>
             @if(auth()->user() && auth()->user()->isAdmin())
             <a href="{{ route('destinations.create') }}" class="btn btn-primary new-btn">{{ __('messages.AddNewDest') }}</a>
+            @else
+            <div class="search-field">
+                <form method="GET" action="{{ route('destinations') }}">
+                    <input
+                        type="text"
+                        name="search"
+                        placeholder="{{ __('messages.Search') }} "
+                        value="{{ request('search') }}"
+                        class="form-control"
+                    >
+                    <button type="submit" class="btn btn-primary"> > </button>
+                </form>
+            </div>
             @endif
         </div>
         <div class="travel-cards">
-            @foreach($destinations as $destination)
+            @forelse($destinations as $destination)
                 <div class="travel-card">
                     <a href="{{ route('destinations.show', $destination->id) }}">
                         @if($destination->images->isNotEmpty())
@@ -44,7 +57,9 @@
                     </form>
                     @endif
                 </div>
-            @endforeach
+            @empty
+                <h3 class="no-results">{{ __('messages.NoDest') }}</h3>
+            @endforelse
         </div>
     </div>
 @endsection

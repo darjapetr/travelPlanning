@@ -14,11 +14,26 @@ class AccommodationController extends Controller
     /**
      * Show 'Accommodation' page.
      *
+     * @param Request $request
      * @return Factory|View|Application
      */
-    public function index(): Factory|View|Application
+    public function index(Request $request): Factory|View|Application
     {
-        $accommodations = Accommodation::with('images')->inRandomOrder()->get();
+        $query = Accommodation::with('images');
+
+        if ($request->has('search') && $request->search) {
+            $search = $request->search;
+            $query->where(function ($q) use ($search) {
+                $q->where('name', 'like', "%{$search}%")
+                    ->orWhere('country_en', 'like', "%{$search}%")
+                    ->orWhere('country_lt', 'like', "%{$search}%")
+                    ->orWhere('city_en', 'like', "%{$search}%")
+                    ->orWhere('city_lt', 'like', "%{$search}%")
+                    ->orWhere('type', 'like', "%{$search}%");
+            });
+        }
+
+        $accommodations = $query->inRandomOrder()->get();
         return view('accommodation', compact('accommodations'));
     }
 

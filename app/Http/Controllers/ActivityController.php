@@ -14,11 +14,27 @@ class ActivityController extends Controller
     /**
      * Show 'Activities' page.
      *
+     * @param Request $request
      * @return Factory|View|Application
      */
-    public function index(): Factory|View|Application
+    public function index(Request $request): Factory|View|Application
     {
-        $activities = Activity::with('images')->inRandomOrder()->get();
+        $query = Activity::with('images');
+
+        if ($request->has('search') && $request->search) {
+            $search = $request->search;
+            $query->where(function ($q) use ($search) {
+                $q->where('name_en', 'like', "%{$search}%")
+                    ->orWhere('name_lt', 'like', "%{$search}%")
+                    ->orWhere('country_en', 'like', "%{$search}%")
+                    ->orWhere('country_lt', 'like', "%{$search}%")
+                    ->orWhere('city_en', 'like', "%{$search}%")
+                    ->orWhere('city_lt', 'like', "%{$search}%")
+                    ->orWhere('type', 'like', "%{$search}%");
+            });
+        }
+
+        $activities = $query->inRandomOrder()->get();
         return view('activities', compact('activities'));
     }
 

@@ -4,7 +4,7 @@
 
 .travel-header {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     gap: 10px;
     margin-bottom: 20px;
@@ -16,6 +16,34 @@
     flex-grow: 1;
     color: #0A2C47;
     text-align: center;
+    margin: 0;
+}
+
+.search-field {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex: 1;
+    position: absolute;
+    right: 85px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.search-field form {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.search-field input {
+    width: 200px;
+    padding: 5px;
+    border-radius: 15px;
+}
+
+.search-field button {
+    padding: 5px 10px;
 }
 
 .travel-header .new-btn {
@@ -34,6 +62,13 @@
     margin: 0 auto;
 }
 
+.no-results {
+    margin-top: 30px;
+    font-size: 16px;
+    text-align: center;
+    color: #0A2C47;
+}
+
 .travel-card {
     text-align: center;
 }
@@ -46,7 +81,7 @@
 
 .travel-card p {
     font-size: 18px;
-    color: #333;
+    color: #0A2C47;;
     margin-top: 10px;
 }
 

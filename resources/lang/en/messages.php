@@ -40,5 +40,8 @@ return [
     'AddNewAccom' => 'Add New Accommodation',
     'AllAct' => 'All Activities',
     'AddNewAct' => 'Add New Activity',
-
+    'NoDest' => 'No Destinations found',
+    'NoAccom' => 'No Accommodation found',
+    'NoAct' => 'No Activities found',
+    'Search' => 'Search'
 ];

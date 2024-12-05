@@ -40,6 +40,8 @@ return [
     'AddNewAccom' => 'Pridėti naują apgyvendinimą',
     'AllAct' => 'Visos pramogos',
     'AddNewAct' => 'Pridėti naują pramogą',
-
-
+    'NoDest' => 'Nerasta jokių įrašų',
+    'NoAccom' => 'Nerasta jokių įrašų',
+    'NoAct' => 'Nerasta jokių įrašų',
+    'Search' => 'Ieškoti'
 ];

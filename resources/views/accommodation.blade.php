@@ -5,10 +5,23 @@
             <h3>{{ __('messages.AllAccom') }}</h3>
             @if(auth()->user() && auth()->user()->isAdmin())
                 <a href="{{ route('accommodation.create') }}" class="btn btn-primary new-btn">{{ __('messages.AddNewAccom') }}</a>
+            @else
+                <div class="search-field">
+                    <form method="GET" action="{{ route('accommodation') }}">
+                        <input
+                            type="text"
+                            name="search"
+                            placeholder="{{ __('messages.Search') }} "
+                            value="{{ request('search') }}"
+                            class="form-control"
+                        >
+                        <button type="submit" class="btn btn-primary"> > </button>
+                    </form>
+                </div>
             @endif
         </div>
         <div class="travel-cards">
-            @foreach($accommodations as $accommodation)
+            @forelse($accommodations as $accommodation)
                 <div class="travel-card">
                     <a href="{{ route('accommodation.show', $accommodation->id) }}">
                         @if($accommodation->images->isNotEmpty())
@@ -44,7 +57,9 @@
                         </form>
                     @endif
                 </div>
-            @endforeach
+            @empty
+                <h3 class="no-results">{{ __('messages.NoAccom') }}</h3>
+            @endforelse
         </div>
     </div>
 @endsection
