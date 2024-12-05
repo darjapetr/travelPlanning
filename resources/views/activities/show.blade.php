@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
-    <div class="activity-details">
-        <h1>{{ $activity->name }}</h1>
+    <div class="object-details">
+        <h1>{{ $activity->{'name_' . app()->getLocale()} }}</h1>
         <div class="carousel">
             <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
@@ -21,25 +21,27 @@
                 </button>
             </div>
         </div>
-        <div class="address">
-            <h2>Address</h2>
-            <p>{{ $activity->address }}, {{ $activity->city_en }}, {{ $activity->country_en }}</p>
+        <div class="object-address">
+            <h2>{{ __('messages.Address') }}</h2>
+            <p>{{ $activity->address }}, {{ $activity->{'city_' . app()->getLocale()} }}, {{ $activity->{'country_' . app()->getLocale()} }}</p>
         </div>
-        <div class="price">
-            <h2>Price</h2>
+        <div class="object-price">
+            <h2>{{ __('messages.Price') }}</h2>
             <p>${{ number_format($activity->price, 2) }}</p>
         </div>
-        <div class="description">
-            <h2>Description</h2>
-            <p>{{ $activity->description_en }}</p>
+        <div class="object-description">
+            <h2>{{ __('messages.Description') }}</h2>
+            <p>{{ $activity->{'description_' . app()->getLocale()} }}</p>
         </div>
-        @if(auth()->user() && auth()->user()->isAdmin())
-            <a href="{{ route('activities.edit', $activity->id) }}" class="btn btn-warning">Modify</a>
-            <form action="{{ route('activities.destroy', $activity->id) }}" method="POST" style="display:inline;">
-                @csrf
-                @method('DELETE')
-                <button type="submit" class="btn btn-danger">Delete</button>
-            </form>
-        @endif
+        <div class="buttons">
+            @if(auth()->user() && auth()->user()->isAdmin())
+                <a href="{{ route('activities.edit', $activity->id) }}" class="btn btn-warning">{{ __('messages.Modify') }}</a>
+                <form action="{{ route('activities.destroy', $activity->id) }}" method="POST" style="display:inline;">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-danger">{{ __('messages.Delete') }}</button>
+                </form>
+            @endif
+        </div>
     </div>
 @endsection

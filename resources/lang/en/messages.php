@@ -43,5 +43,8 @@ return [
     'NoDest' => 'No Destinations found',
     'NoAccom' => 'No Accommodation found',
     'NoAct' => 'No Activities found',
-    'Search' => 'Search'
+    'Search' => 'Search',
+    'Address' => 'Address',
+    'Price' => 'Price',
+    'Description' => 'Description'
 ];

@@ -43,5 +43,8 @@ return [
     'NoDest' => 'Nerasta jokių įrašų',
     'NoAccom' => 'Nerasta jokių įrašų',
     'NoAct' => 'Nerasta jokių įrašų',
-    'Search' => 'Ieškoti'
+    'Search' => 'Ieškoti',
+    'Address' => 'Adresas',
+    'Price' => 'Kaina',
+    'Description' => 'Aprašymas'
 ];

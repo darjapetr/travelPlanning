@@ -93,3 +93,82 @@
     padding: 8px 25px;
 }
 
+.carousel {
+    margin: 20px auto;
+    max-width: 800px;
+}
+
+.carousel img {
+    width: 700px;
+    height: 400px;
+}
+
+.object-details {
+    margin: 30px auto;
+    width: 80%;
+    max-width: 1200px;
+}
+
+.object-details h1 {
+    text-align: center;
+    font-size: 36px;
+    color: #0A2C47;
+    margin-bottom: 30px;
+}
+
+.object-address {
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+}
+
+.object-address h2 {
+    font-size: 24px;
+    color: #0A2C47;
+    margin-bottom: 10px;
+}
+
+.object-address p {
+    font-size: 18px;
+    color: #333;
+}
+
+.object-price {
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+}
+
+.object-price h2 {
+    font-size: 24px;
+    color: #0A2C47;
+    margin-bottom: 10px;
+}
+
+.object-price p {
+    font-size: 20px;
+    color: #27ae60;
+    font-weight: bold;
+}
+
+.object-description {
+    margin-top: 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+.object-description h2 {
+    font-size: 24px;
+    color: #0A2C47;
+    margin-bottom: 10px;
+}
+
+.object-description p {
+    font-size: 18px;
+    color: #333;
+    line-height: 1.6;
+}

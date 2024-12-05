@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
-    <div class="destination-details">
-        <h1>{{ $destination->city_en }}, {{ $destination->country_en }}</h1>
+    <div class="object-details">
+        <h1>{{ $destination->{'city_' . app()->getLocale()} }}, {{ $destination->{'country_' . app()->getLocale()} }}</h1>
         <div class="carousel">
             <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
@@ -21,17 +21,19 @@
                 </button>
             </div>
         </div>
-        <div class="description">
-            <h2>Description</h2>
-            <p>{{ $destination->description_en }}</p>
+        <div class="object-description">
+            <h2>{{ __('messages.Description') }}</h2>
+            <p>{{ $destination->{'description_' . app()->getLocale()} }}</p>
         </div>
+        <div class="buttons">
         @if(auth()->user() && auth()->user()->isAdmin())
-        <a href="{{ route('destinations.edit', $destination->id) }}" class="btn btn-warning">Modify</a>
-        <form action="{{ route('destinations.destroy', $destination->id) }}" method="POST" style="display:inline;">
-            @csrf
-            @method('DELETE')
-            <button type="submit" class="btn btn-danger">Delete</button>
-        </form>
-        @endif
+            <a href="{{ route('destinations.edit', $destination->id) }}" class="btn btn-warning">{{ __('messages.Modify') }}</a>
+            <form action="{{ route('destinations.destroy', $destination->id) }}" method="POST" style="display:inline;">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="btn btn-danger">{{ __('messages.Delete') }}</button>
+            </form>
+            @endif
+        </div>
     </div>
 @endsection

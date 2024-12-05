@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-    <div class="accommodation-details">
+    <div class="object-details">
         <h1>{{ $accommodation->name }}</h1>
         <div class="carousel">
             <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
@@ -21,25 +21,27 @@
                 </button>
             </div>
         </div>
-        <div class="address">
-            <h2>Address</h2>
-            <p>{{ $accommodation->address }}, {{ $accommodation->city_en }}, {{ $accommodation->country_en }}</p>
+        <div class="object-address">
+            <h2>{{ __('messages.Address') }}</h2>
+            <p>{{ $accommodation->address }}, {{ $accommodation->{'city_' . app()->getLocale()} }}, {{ $accommodation->{'country_' . app()->getLocale()} }}</p>
         </div>
-        <div class="price">
-            <h2>Price</h2>
+        <div class="object-price">
+            <h2>{{ __('messages.Price') }}</h2>
             <p>${{ number_format($accommodation->price, 2) }}</p>
         </div>
-        <div class="description">
-            <h2>Description</h2>
-            <p>{{ $accommodation->description_en }}</p>
+        <div class="object-description">
+            <h2>{{ __('messages.Description') }}</h2>
+            <p>{{ $accommodation->{'description_' . app()->getLocale()} }}</p>
         </div>
-        @if(auth()->user() && auth()->user()->isAdmin())
-        <a href="{{ route('$accommodation.edit', $accommodation->id) }}" class="btn btn-warning">Modify</a>
-        <form action="{{ route('$accommodation.destroy', $accommodation->id) }}" method="POST" style="display:inline;">
-            @csrf
-            @method('DELETE')
-            <button type="submit" class="btn btn-danger">Delete</button>
-        </form>
-        @endif
+        <div class="buttons">
+            @if(auth()->user() && auth()->user()->isAdmin())
+            <a href="{{ route('$accommodation.edit', $accommodation->id) }}" class="btn btn-warning">{{ __('messages.Modify') }}</a>
+            <form action="{{ route('$accommodation.destroy', $accommodation->id) }}" method="POST" style="display:inline;">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="btn btn-danger">{{ __('messages.Delete') }}</button>
+            </form>
+            @endif
+        </div>
     </div>
 @endsection
