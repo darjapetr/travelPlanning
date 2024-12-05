@@ -2,9 +2,9 @@
 @section('content')
     <div class="activities-page">
         <div class="activities-header">
-            <h3>All activities</h3>
+            <h3>{{ __('messages.AllAct') }}</h3>
             @if(auth()->user() && auth()->user()->isAdmin())
-                <a href="{{ route('activities.create') }}" class="btn btn-primary">Add New Activity</a>
+                <a href="{{ route('activities.create') }}" class="btn btn-primary">{{ __('messages.AddNewAct') }}</a>
             @endif
         </div>
         <div class="activities-cards">
@@ -16,7 +16,7 @@
                         @else
                             <img src="{{ asset('images/default.jpg') }}" alt="Default Image">
                         @endif
-                        <p>{{ $activity->name_en }}</p>
+                        <p>{{ $activity->{'name_' . app()->getLocale()} }}</p>
                     </a>
                     @if(auth()->user() && !auth()->user()->isAdmin())
                         @php
@@ -26,21 +26,21 @@
                         @if ($liked)
                             <form action="{{ route('unlike', ['type' => 'activity', 'id' => $activity->id]) }}" method="POST">
                                 @csrf
-                                <button type="submit" class="btn btn-danger">Unlike</button>
+                                <button type="submit" class="btn btn-danger">{{ __('messages.Unlike') }}</button>
                             </form>
                         @else
                             <form action="{{ route('like', ['type' => 'activity', 'id' => $activity->id]) }}" method="POST">
                                 @csrf
-                                <button type="submit" class="btn btn-primary">Like</button>
+                                <button type="submit" class="btn btn-primary">{{ __('messages.Like') }}</button>
                             </form>
                         @endif
                     @endif
                     @if(auth()->user() && auth()->user()->isAdmin())
-                        <a href="{{ route('activities.edit', $activity->id) }}" class="btn btn-warning">Modify</a>
+                        <a href="{{ route('activities.edit', $activity->id) }}" class="btn btn-warning">{{ __('messages.Modify') }}</a>
                         <form action="{{ route('activities.destroy', $activity->id) }}" method="POST" style="display:inline;">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-danger">Delete</button>
+                            <button type="submit" class="btn btn-danger">{{ __('messages.Delete') }}</button>
                         </form>
                     @endif
                 </div>

@@ -5,22 +5,22 @@
     </div>
     <div class="menu-container">
         <nav class="menu">
-            <a href="{{ route('home') }}">{{ __('Home') }}</a>
-            <a href="{{ route('destinations') }}">{{ __('Destinations') }}</a>
-            <a href="{{ route('accommodation') }}">{{ __('Accommodation') }}</a>
-            <a href="{{ route('activities') }}">{{ __('Activities') }}</a>
+            <a href="{{ route('home') }}">{{ __('messages.Home') }}</a>
+            <a href="{{ route('destinations') }}">{{ __('messages.Destinations') }}</a>
+            <a href="{{ route('accommodation') }}">{{ __('messages.Accommodation') }}</a>
+            <a href="{{ route('activities') }}">{{ __('messages.Activities') }}</a>
         </nav>
     </div>
     <div class="auth-buttons">
         @guest
             @if (Route::has('login'))
                 <button class="login-btn">
-                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                    <a class="nav-link" href="{{ route('login') }}">{{ __('messages.Login') }}</a>
                 </button>
             @endif
             @if (Route::has('register'))
                 <button class="register-btn">
-                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                    <a class="nav-link" href="{{ route('register') }}">{{ __('messages.Register') }}</a>
                 </button>
             @endif
         @else
@@ -32,14 +32,13 @@
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 @if(!auth()->user()->isAdmin())
-                                    <li><a class="dropdown-item" href="{{ route('likelist.index') }}">{{ __('Like List') }}</a></li>
-                                    <li><a class="dropdown-item" href="{{ route('trips.index') }}">{{ __('My trips') }}</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('likelist.index') }}">{{ __('messages.LikeList') }}</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('trips.index') }}">{{ __('messages.MyTrips') }}</a></li>
                                 @endif
-                                <li><a class="dropdown-item" href="#">{{__('Account settings')}}</a></li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li>
                                     <a class="dropdown-item logout-link" href="{{ route('logout') }}">
-                                        {{ __('Logout') }}
+                                        {{ __('messages.Logout') }}
                                     </a>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf

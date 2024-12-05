@@ -2,9 +2,9 @@
 @section('content')
     <div class="accommodation-page">
         <div class="accommodation-header">
-            <h3>All accommodations</h3>
+            <h3>{{ __('messages.AllAccom') }}</h3>
             @if(auth()->user() && auth()->user()->isAdmin())
-                <a href="{{ route('accommodation.create') }}" class="btn btn-primary">Add New Destination</a>
+                <a href="{{ route('accommodation.create') }}" class="btn btn-primary">{{ __('messages.AddNewAccom') }}</a>
             @endif
         </div>
         <div class="accommodation-cards">
@@ -26,21 +26,21 @@
                         @if ($liked)
                             <form action="{{ route('unlike', ['type' => 'accommodation', 'id' => $accommodation->id]) }}" method="POST">
                                 @csrf
-                                <button type="submit" class="btn btn-danger">Unlike</button>
+                                <button type="submit" class="btn btn-danger">{{ __('messages.Unlike') }}</button>
                             </form>
                         @else
                             <form action="{{ route('like', ['type' => 'accommodation', 'id' => $accommodation->id]) }}" method="POST">
                                 @csrf
-                                <button type="submit" class="btn btn-primary">Like</button>
+                                <button type="submit" class="btn btn-primary">{{ __('messages.Like') }}</button>
                             </form>
                         @endif
                     @endif
                     @if(auth()->user() && auth()->user()->isAdmin())
-                        <a href="{{ route('accommodation.edit', $accommodation->id) }}" class="btn btn-warning">Modify</a>
+                        <a href="{{ route('accommodation.edit', $accommodation->id) }}" class="btn btn-warning">{{ __('messages.Modify') }}</a>
                         <form action="{{ route('accommodation.destroy', $accommodation->id) }}" method="POST" style="display:inline;">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-danger">Delete</button>
+                            <button type="submit" class="btn btn-danger">{{ __('messages.Delete') }}</button>
                         </form>
                     @endif
                 </div>
