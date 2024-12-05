@@ -1,15 +1,15 @@
 @extends('layouts.app')
 @section('content')
-    <div class="destinations-page">
-        <div class="destinations-header">
+    <div class="travel-page">
+        <div class="travel-header">
             <h3>{{ __('messages.AllDest') }}</h3>
             @if(auth()->user() && auth()->user()->isAdmin())
-            <a href="{{ route('destinations.create') }}" class="btn btn-primary">{{ __('messages.AddNewDest') }}</a>
+            <a href="{{ route('destinations.create') }}" class="btn btn-primary new-btn">{{ __('messages.AddNewDest') }}</a>
             @endif
         </div>
-        <div class="destinations-cards">
+        <div class="travel-cards">
             @foreach($destinations as $destination)
-                <div class="destination-card">
+                <div class="travel-card">
                     <a href="{{ route('destinations.show', $destination->id) }}">
                         @if($destination->images->isNotEmpty())
                             <img src="{{ asset('storage/' . $destination->images->first()->path) }}" alt="{{ $destination->city_en }}">
@@ -26,21 +26,21 @@
                         @if ($liked)
                             <form action="{{ route('unlike', ['type' => 'destination', 'id' => $destination->id]) }}" method="POST">
                                 @csrf
-                                <button type="submit" class="btn btn-danger">{{ __('messages.Unlike') }}</button>
+                                <button type="submit" class="btn btn-danger travel-btn">{{ __('messages.Unlike') }}</button>
                             </form>
                         @else
                             <form action="{{ route('like', ['type' => 'destination', 'id' => $destination->id]) }}" method="POST">
                                 @csrf
-                                <button type="submit" class="btn btn-primary">{{ __('messages.Like') }}</button>
+                                <button type="submit" class="btn btn-primary travel-btn">{{ __('messages.Like') }}</button>
                             </form>
                         @endif
                     @endif
                     @if(auth()->user() && auth()->user()->isAdmin())
-                    <a href="{{ route('destinations.edit', $destination->id) }}" class="btn btn-warning">{{ __('messages.Modify') }}</a>
+                    <a href="{{ route('destinations.edit', $destination->id) }}" class="btn btn-warning travel-btn">{{ __('messages.Modify') }}</a>
                     <form action="{{ route('destinations.destroy', $destination->id) }}" method="POST" style="display:inline;">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-danger">{{ __('messages.Delete') }}</button>
+                        <button type="submit" class="btn btn-danger travel-btn">{{ __('messages.Delete') }}</button>
                     </form>
                     @endif
                 </div>

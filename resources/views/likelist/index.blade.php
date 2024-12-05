@@ -1,12 +1,12 @@
 @extends('layouts.app')
 @section('content')
-    <div class="accommodation-page">
-        <div class="accommodation-header">
+    <div class="travel-page">
+        <div class="travel-header">
             <h3>My Like List</h3>
         </div>
-    <div class="accommodation-cards">
+    <div class="travel-cards">
         @forelse ($items as $item)
-            <div class="accommodation-card">
+            <div class="travel-card">
                 @if ($item['type'] === 'destination')
                     <a href="{{ route('destinations.show', $item['model']->id) }}">
                         @if ($item['model']->images->isNotEmpty())

@@ -1,15 +1,15 @@
 @extends('layouts.app')
 @section('content')
-    <div class="accommodation-page">
-        <div class="accommodation-header">
+    <div class="travel-page">
+        <div class="travel-header">
             <h3>{{ __('messages.AllAccom') }}</h3>
             @if(auth()->user() && auth()->user()->isAdmin())
-                <a href="{{ route('accommodation.create') }}" class="btn btn-primary">{{ __('messages.AddNewAccom') }}</a>
+                <a href="{{ route('accommodation.create') }}" class="btn btn-primary new-btn">{{ __('messages.AddNewAccom') }}</a>
             @endif
         </div>
-        <div class="accommodation-cards">
+        <div class="travel-cards">
             @foreach($accommodations as $accommodation)
-                <div class="accommodation-card">
+                <div class="travel-card">
                     <a href="{{ route('accommodation.show', $accommodation->id) }}">
                         @if($accommodation->images->isNotEmpty())
                             <img src="{{ asset('storage/' . $accommodation->images->first()->path) }}" alt="{{ $accommodation->name }}">
@@ -26,21 +26,21 @@
                         @if ($liked)
                             <form action="{{ route('unlike', ['type' => 'accommodation', 'id' => $accommodation->id]) }}" method="POST">
                                 @csrf
-                                <button type="submit" class="btn btn-danger">{{ __('messages.Unlike') }}</button>
+                                <button type="submit" class="btn btn-danger travel-btn">{{ __('messages.Unlike') }}</button>
                             </form>
                         @else
                             <form action="{{ route('like', ['type' => 'accommodation', 'id' => $accommodation->id]) }}" method="POST">
                                 @csrf
-                                <button type="submit" class="btn btn-primary">{{ __('messages.Like') }}</button>
+                                <button type="submit" class="btn btn-primary travel-btn">{{ __('messages.Like') }}</button>
                             </form>
                         @endif
                     @endif
                     @if(auth()->user() && auth()->user()->isAdmin())
-                        <a href="{{ route('accommodation.edit', $accommodation->id) }}" class="btn btn-warning">{{ __('messages.Modify') }}</a>
+                        <a href="{{ route('accommodation.edit', $accommodation->id) }}" class="btn btn-warning travel-btn">{{ __('messages.Modify') }}</a>
                         <form action="{{ route('accommodation.destroy', $accommodation->id) }}" method="POST" style="display:inline;">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-danger">{{ __('messages.Delete') }}</button>
+                            <button type="submit" class="btn btn-danger travel-btn">{{ __('messages.Delete') }}</button>
                         </form>
                     @endif
                 </div>

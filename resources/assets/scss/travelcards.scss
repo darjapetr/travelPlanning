@@ -1,0 +1,60 @@
+.travel-page {
+    margin: 30px;
+}
+
+.travel-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.travel-header h3 {
+    font-size: 28px;
+    flex-grow: 1;
+    color: #0A2C47;
+    text-align: center;
+}
+
+.travel-header .new-btn {
+    position: absolute;
+    right: 85px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.travel-cards {
+    width: 90%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    column-gap: 20px;
+    row-gap: 50px;
+    margin: 0 auto;
+}
+
+.travel-card {
+    text-align: center;
+}
+
+.travel-card img {
+    height: 220px;
+    width: 350px;
+    border-radius: 10px;
+}
+
+.travel-card p {
+    font-size: 18px;
+    color: #333;
+    margin-top: 10px;
+}
+
+.travel-card a {
+    text-decoration: none;
+}
+
+.travel-btn {
+    padding: 8px 25px;
+}
+

@@ -14,16 +14,18 @@
                 <h3>{{ __('messages.PopDest') }}</h3>
                 <a href="{{ route('destinations') }}" class="explore-link">{{ __('messages.Explore') }}</a>
             </div>
-            <div class="destinations-cards">
+            <div class="travel-cards">
                 @foreach($destinations as $destination)
-                    <div class="destination-card">
-                        @if($destination->images->isNotEmpty())
-                            <img src="{{ asset('storage/' . $destination->images->first()->path) }}" alt="{{ $destination->{'city_' . app()->getLocale()} }}">
-                        @else
-                            <img src="{{ asset('images/default.jpg') }}" alt="Default Image">
-                        @endif
-                            <p>{{ $destination->{'city_' . app()->getLocale()} }} }}, {{ $destination->{'country_' . app()->getLocale()} }} }}</p>
-                    </div>
+                        <div class="travel-card">
+                            <a href="{{ route('destinations.show', $destination->id) }}">
+                                @if($destination->images->isNotEmpty())
+                                    <img src="{{ asset('storage/' . $destination->images->first()->path) }}" alt="{{ $destination->{'city_' . app()->getLocale()} }}">
+                                @else
+                                    <img src="{{ asset('images/default.jpg') }}" alt="Default Image">
+                                @endif
+                                    <p>{{ $destination->{'city_' . app()->getLocale()} }}, {{ $destination->{'country_' . app()->getLocale()} }}</p>
+                            </a>
+                        </div>
                 @endforeach
             </div>
         </div>
@@ -31,14 +33,18 @@
         <div class="explore-section">
             <h3>{{ __('messages.ExploreHome') }}</h3>
             <div class="explore-cards">
-                <div class="explore-card">
-                    <h4>{{ __('messages.Accommodation') }}</h4>
-                    <p>{{ __('messages.AccommodationHome') }}</p>
-                </div>
-                <div class="explore-card">
-                    <h4>{{ __('messages.Activities') }}</h4>
-                    <p>{{ __('messages.ActivitiesHome') }}</p>
-                </div>
+                <a href="{{ route('accommodation') }}">
+                    <div class="explore-card">
+                        <h4>{{ __('messages.Accommodation') }}</h4>
+                        <p>{{ __('messages.AccommodationHome') }}</p>
+                    </div>
+                </a>
+                <a href="{{ route('activities') }}">
+                    <div class="explore-card">
+                        <h4>{{ __('messages.Activities') }}</h4>
+                        <p>{{ __('messages.ActivitiesHome') }}</p>
+                    </div>
+                </a>
             </div>
         </div>
 
