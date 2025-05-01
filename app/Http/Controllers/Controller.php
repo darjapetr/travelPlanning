@@ -9,4 +9,9 @@ use Illuminate\Routing\Controller as BaseController;
 class Controller extends BaseController
 {
     use AuthorizesRequests, ValidatesRequests;
+
+    protected function ensureAdmin()
+    {
+        abort_if(!auth()->check() || !auth()->user()->isAdmin(), 403);
+    }
 }

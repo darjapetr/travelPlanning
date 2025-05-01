@@ -57,6 +57,7 @@ class ActivityController extends Controller
      */
     public function create(): Factory|View|Application
     {
+        $this->ensureAdmin();
         return view('activities.form');
     }
 
@@ -68,6 +69,8 @@ class ActivityController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
+        $this->ensureAdmin();
+
         $data = $request->validate([
             'name_lt' => 'required|string|max:255',
             'name_en' => 'required|string|max:255',
@@ -103,6 +106,7 @@ class ActivityController extends Controller
      */
     public function edit(Activity $activity): View|Factory|Application
     {
+        $this->ensureAdmin();
         return view('activities.form', compact('activity'));
     }
 
@@ -115,6 +119,8 @@ class ActivityController extends Controller
      */
     public function update(Request $request, Activity $activity): RedirectResponse
     {
+        $this->ensureAdmin();
+
         $data = $request->validate([
             'name_lt' => 'required|string|max:255',
             'name_en' => 'required|string|max:255',
@@ -150,6 +156,7 @@ class ActivityController extends Controller
      */
     public function destroy(Activity $activity): RedirectResponse
     {
+        $this->ensureAdmin();
         $activity->delete();
         return redirect()->route('activities')->with('success', 'Activity deleted successfully!');
     }

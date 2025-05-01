@@ -56,6 +56,7 @@ class AccommodationController extends Controller
      */
     public function create(): Factory|View|Application
     {
+        $this->ensureAdmin();
         return view('accommodations.form');
     }
 
@@ -67,6 +68,8 @@ class AccommodationController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
+        $this->ensureAdmin();
+
         $data = $request->validate([
             'name' => 'required|string|max:255',
             'city_en' => 'required|string|max:255',
@@ -101,6 +104,7 @@ class AccommodationController extends Controller
      */
     public function edit(Accommodation $accommodation): View|Factory|Application
     {
+        $this->ensureAdmin();
         return view('accommodations.form', compact('accommodation'));
     }
 
@@ -113,6 +117,8 @@ class AccommodationController extends Controller
      */
     public function update(Request $request, Accommodation $accommodation): RedirectResponse
     {
+        $this->ensureAdmin();
+
         $data = $request->validate([
             'name' => 'required|string|max:255',
             'city_en' => 'required|string|max:255',
@@ -147,6 +153,7 @@ class AccommodationController extends Controller
      */
     public function destroy(Accommodation $accommodation): RedirectResponse
     {
+        $this->ensureAdmin();
         $accommodation->delete();
         return redirect()->route('accommodation')->with('success', 'Accommodation deleted successfully!');
     }

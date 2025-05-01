@@ -54,6 +54,7 @@ class DestinationController extends Controller
      */
     public function create(): Factory|View|Application
     {
+        $this->ensureAdmin();
         return view('destinations.form');
     }
 
@@ -65,6 +66,8 @@ class DestinationController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
+        $this->ensureAdmin();
+
         $data = $request->validate([
             'city_en' => 'required|string|max:255',
             'city_lt' => 'required|string|max:255',
@@ -95,6 +98,7 @@ class DestinationController extends Controller
      */
     public function edit(Destination $destination): View|Factory|Application
     {
+        $this->ensureAdmin();
         return view('destinations.form', compact('destination'));
     }
 
@@ -107,6 +111,8 @@ class DestinationController extends Controller
      */
     public function update(Request $request, Destination $destination): RedirectResponse
     {
+        $this->ensureAdmin();
+
         $data = $request->validate([
             'city_en' => 'required|string|max:255',
             'city_lt' => 'required|string|max:255',
@@ -137,6 +143,7 @@ class DestinationController extends Controller
      */
     public function destroy(Destination $destination): RedirectResponse
     {
+        $this->ensureAdmin();
         $destination->delete();
         return redirect()->route('destinations')->with('success', 'Destination deleted successfully!');
     }
