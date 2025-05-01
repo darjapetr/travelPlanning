@@ -97,6 +97,62 @@
     padding: 8px 25px;
 }
 
+.carousel {
+    margin: 20px auto;
+    max-width: 800px;
+}
+
+.carousel img {
+    width: 700px;
+}
+
+.object-details {
+    margin: 30px auto;
+    width: 80%;
+    max-width: 1200px;
+}
+
+.object-details h1 {
+    text-align: center;
+    color: #0A2C47;
+    margin-bottom: 30px;
+}
+
+.object-address,
+.object-price,
+.object-description {
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+}
+
+.object-description {
+    margin-top: 20px;
+}
+
+.object-address h2,
+.object-price h2,
+.object-description h2 {
+    color: #0A2C47;
+    margin-bottom: 10px;
+}
+
+.object-address p {
+    color: #333;
+}
+
+.object-price p {
+    color: #27ae60;
+    font-weight: bold;
+}
+
+.object-description p {
+    color: #333;
+    line-height: 1.6;
+    text-align: justify;
+}
+
 @media (max-width: 500px) {
     .travel-header {
         flex-direction: column;
@@ -133,6 +189,29 @@
 
     .travel-card img {
         height: 200px;
+    }
+
+    .carousel img {
+        height: 250px;
+    }
+
+    .object-details h1 {
+        font-size: 26px;
+    }
+
+    .object-address h2,
+    .object-description h2,
+    .object-price h2 {
+        font-size: 20px;
+    }
+
+    .object-address p,
+    .object-description p {
+        font-size: 14px;
+    }
+
+    .object-price p {
+        font-size: 16px;
     }
 }
 
@@ -173,6 +252,29 @@
     .travel-card img {
         height: 220px;
     }
+
+    .carousel img {
+        height: 300px;
+    }
+
+    .object-details h1 {
+        font-size: 28px;
+    }
+
+    .object-address h2,
+    .object-description h2,
+    .object-price h2 {
+        font-size: 21px;
+    }
+
+    .object-address p,
+    .object-description p {
+        font-size: 15px;
+    }
+
+    .object-price p {
+        font-size: 17px;
+    }
 }
 
 @media (min-width: 701px) and (max-width: 900px) {
@@ -211,6 +313,29 @@
     .travel-card img {
         height: 200px;
     }
+
+    .carousel img {
+        height: 350px;
+    }
+
+    .object-details h1 {
+        font-size: 30px;
+    }
+
+    .object-address h2,
+    .object-description h2,
+    .object-price h2 {
+        font-size: 22px;
+    }
+
+    .object-address p,
+    .object-description p {
+        font-size: 16px;
+    }
+
+    .object-price p {
+        font-size: 18px;
+    }
 }
 
 @media (min-width: 901px) and (max-width: 1050px) {
@@ -241,6 +366,29 @@
     .travel-card img {
         height: 220px;
     }
+
+    .carousel img {
+        height: 400px;
+    }
+
+    .object-details h1 {
+        font-size: 32px;
+    }
+
+    .object-address h2,
+    .object-description h2,
+    .object-price h2 {
+        font-size: 23px;
+    }
+
+    .object-address p,
+    .object-description p {
+        font-size: 17px;
+    }
+
+    .object-price p {
+        font-size: 19px;
+    }
 }
 
 @media (min-width: 1051px) {
@@ -270,84 +418,27 @@
     .travel-card img {
         height: 220px;
     }
-}
 
-.carousel {
-    margin: 20px auto;
-    max-width: 800px;
-}
+    .carousel img {
+        height: 400px;
+    }
 
-.carousel img {
-    width: 700px;
-    height: 400px;
-}
+    .object-details h1 {
+        font-size: 34px;
+    }
 
-.object-details {
-    margin: 30px auto;
-    width: 80%;
-    max-width: 1200px;
-}
+    .object-address h2,
+    .object-description h2,
+    .object-price h2 {
+        font-size: 24px;
+    }
 
-.object-details h1 {
-    text-align: center;
-    font-size: 36px;
-    color: #0A2C47;
-    margin-bottom: 30px;
-}
+    .object-address p,
+    .object-description p {
+        font-size: 18px;
+    }
 
-.object-address {
-    margin-bottom: 30px;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 10px;
-}
-
-.object-address h2 {
-    font-size: 24px;
-    color: #0A2C47;
-    margin-bottom: 10px;
-}
-
-.object-address p {
-    font-size: 18px;
-    color: #333;
-}
-
-.object-price {
-    margin-bottom: 30px;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 10px;
-}
-
-.object-price h2 {
-    font-size: 24px;
-    color: #0A2C47;
-    margin-bottom: 10px;
-}
-
-.object-price p {
-    font-size: 20px;
-    color: #27ae60;
-    font-weight: bold;
-}
-
-.object-description {
-    margin-top: 20px;
-    border-radius: 10px;
-    margin-bottom: 30px;
-    padding: 20px;
-    background-color: #f9f9f9;
-}
-
-.object-description h2 {
-    font-size: 24px;
-    color: #0A2C47;
-    margin-bottom: 10px;
-}
-
-.object-description p {
-    font-size: 18px;
-    color: #333;
-    line-height: 1.6;
+    .object-price p {
+        font-size: 20px;
+    }
 }

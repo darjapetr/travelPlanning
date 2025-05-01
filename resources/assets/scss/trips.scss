@@ -37,10 +37,7 @@
 .trips-list {
     width: 90%;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    -moz-column-gap: 20px;
-    column-gap: 20px;
-    row-gap: 50px;
+    gap: 50px 20px;
     margin: 0 auto;
 }
 
@@ -50,8 +47,8 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
     transition: transform 0.3s ease-in-out;
-    height: 220px;
-    width: 350px;
+    height: auto;
+    width: 100%;
     text-align: center;
 }
 
@@ -95,4 +92,25 @@
 
 .delete-btn:hover {
     background-color: #c82333;
+}
+
+/* 3 cards in a row */
+@media (min-width: 1051px) {
+    .trips-list {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* 2 cards in a row */
+@media (min-width: 700px) and (max-width: 1050px) {
+    .trips-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* 1 card in a row */
+@media (max-width: 699px) {
+    .trips-list {
+        grid-template-columns: 1fr;
+    }
 }

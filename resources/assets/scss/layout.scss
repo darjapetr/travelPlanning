@@ -184,66 +184,6 @@ header {
     color: #1A7BC9;
 }
 
-@media (min-width: 1050px) {
-    .menu-container {
-        display: block;
-    }
-
-    .auth-buttons {
-        display: flex !important;
-    }
-
-    .navbar {
-        display: block !important;
-    }
-
-    .mobile-dropdown-container .dropdown-toggle,
-    .mobile-menu {
-        display: none !important;
-    }
-}
-
-@media (max-width: 1049px) and (min-width: 800px) {
-    .menu-container {
-        display: none;
-    }
-
-    .navbar {
-        display: none !important;
-    }
-
-    .mobile-dropdown-container .dropdown-toggle {
-        display: block;
-        margin-left: auto;
-    }
-
-    .auth-buttons {
-        display: flex;
-        position: absolute;
-        right: 90px;
-    }
-}
-
-@media (max-width: 799px) {
-    .menu-container,
-    .auth-buttons {
-        display: none;
-    }
-
-    .mobile-dropdown-container .dropdown-toggle {
-        display: block;
-    }
-
-    .logo-container img {
-        width: 70px;
-    }
-
-    .logo-container h2 {
-        font-size: 18px;
-        margin-bottom: 5px;
-    }
-}
-
 .footer {
     background-color: #333;
     color: white;
@@ -337,3 +277,77 @@ header {
     margin-bottom: 15px;
 }
 
+@media (min-width: 1050px) {
+    .menu-container {
+        display: block;
+    }
+
+    .auth-buttons {
+        display: flex !important;
+    }
+
+    .navbar {
+        display: block !important;
+    }
+
+    .mobile-dropdown-container .dropdown-toggle,
+    .mobile-menu {
+        display: none !important;
+    }
+}
+
+@media (max-width: 1049px) and (min-width: 800px) {
+    .menu-container {
+        display: none;
+    }
+
+    .navbar {
+        display: none !important;
+    }
+
+    .mobile-dropdown-container .dropdown-toggle {
+        display: block;
+        margin-left: auto;
+    }
+
+    .auth-buttons {
+        display: flex;
+        position: absolute;
+        right: 90px;
+    }
+}
+
+@media (max-width: 799px) {
+    .menu-container,
+    .auth-buttons {
+        display: none;
+    }
+
+    .mobile-dropdown-container .dropdown-toggle {
+        display: block;
+    }
+
+    .logo-container img {
+        width: 70px;
+    }
+
+    .logo-container h2 {
+        font-size: 18px;
+        margin-bottom: 5px;
+    }
+}
+
+@media (max-width: 499px) {
+    .footer-bottom,
+    .language-selector {
+        display: block;
+        margin: 5px auto;
+        text-align: center;
+    }
+
+    .language-selector ul {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+}

@@ -2,7 +2,7 @@
 @section('content')
     <div class="travel-page">
         <div class="travel-header">
-            <h3>My Like List</h3>
+            <h3 class="my-1 mb-3">{{ __('messages.LikeList') }}</h3>
         </div>
     <div class="travel-cards">
         @forelse ($items as $item)
@@ -37,11 +37,11 @@
                 @endif
                         <form action="{{ route('unlike', ['type' => $item['type'], 'id' => $item['model']->id]) }}" method="POST">
                             @csrf
-                            <button type="submit" class="btn btn-danger">Unlike</button>
+                            <button type="submit" class="btn btn-danger">{{ __('messages.Unlike') }}</button>
                         </form>
             </div>
         @empty
-            <p>No liked items found.</p>
+            <p>{{ __('messages.NoLiked') }}</p>
         @endforelse
     </div>
 </div>
