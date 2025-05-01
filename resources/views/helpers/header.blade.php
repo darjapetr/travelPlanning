@@ -1,8 +1,10 @@
 <header class="header">
     <div class="logo-container">
-        <a class="logo" href="{{ route('home')}}"><img src="{{ url('/images/TravelBridgeLogo2.png') }}"  alt="logo"></a>
+        <a class="logo" href="{{ route('home')}}"><img src="{{ url('/images/TravelBridgeLogo2.png') }}" alt="logo"></a>
         <h2>TravelBridge</h2>
     </div>
+
+    <!-- Main Navigation -->
     <div class="menu-container">
         <nav class="menu">
             <a href="{{ route('home') }}">{{ __('messages.Home') }}</a>
@@ -11,6 +13,8 @@
             <a href="{{ route('activities') }}">{{ __('messages.Activities') }}</a>
         </nav>
     </div>
+
+    <!-- Auth Buttons or User Dropdown -->
     <div class="auth-buttons">
         @guest
             @if (Route::has('login'))
@@ -38,12 +42,11 @@
                                 @endif
                                 <li><hr class="dropdown-divider"></li>
                                 <li>
-                                    <a class="dropdown-item logout-link" href="{{ route('logout') }}">
+                                    <a class="dropdown-item logout-link" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                         {{ __('messages.Logout') }}
                                     </a>
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">@csrf</form>
                                 </li>
                             </ul>
                         </li>
@@ -51,5 +54,40 @@
                 </div>
             </nav>
         @endguest
+    </div>
+
+    <!-- Mobile Dropdown Toggle -->
+    <div class="mobile-dropdown-container">
+        <button class="dropdown-toggle" onclick="toggleMobileMenu()">☰</button>
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="{{ route('home') }}">{{ __('messages.Home') }}</a>
+            <a href="{{ route('destinations') }}">{{ __('messages.Destinations') }}</a>
+            <a href="{{ route('accommodation') }}">{{ __('messages.Accommodation') }}</a>
+            <a href="{{ route('activities') }}">{{ __('messages.Activities') }}</a>
+
+            @auth
+                @if(!auth()->user()->isAdmin())
+                    <hr>
+                    <a href="{{ route('likelist.index') }}">{{ __('messages.LikeList') }}</a>
+                    <a href="{{ route('trips.index') }}">{{ __('messages.MyTrips') }}</a>
+                @endif
+                <hr>
+                <a class="logout-link" href="{{ route('logout') }}"
+                   onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                    {{ __('messages.Logout') }}
+                </a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">@csrf</form>
+            @endauth
+
+            @guest
+                <hr>
+                @if (Route::has('login'))
+                    <a href="{{ route('login') }}">{{ __('messages.Login') }}</a>
+                @endif
+                @if (Route::has('register'))
+                    <a href="{{ route('register') }}">{{ __('messages.Register') }}</a>
+                @endif
+            @endguest
+        </div>
     </div>
 </header>

@@ -4,19 +4,23 @@
 
 .travel-header {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    gap: 10px;
     margin-bottom: 20px;
     position: relative;
+    text-align: center;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .travel-header h3 {
     font-size: 28px;
     flex-grow: 1;
     color: #0A2C47;
-    text-align: center;
     margin: 0;
+    text-align: center;
 }
 
 .search-field {
@@ -25,7 +29,7 @@
     justify-content: flex-end;
     flex: 1;
     position: absolute;
-    right: 85px;
+    right: 0;
     top: 50%;
     transform: translateY(-50%);
 }
@@ -48,7 +52,7 @@
 
 .travel-header .new-btn {
     position: absolute;
-    right: 85px;
+    right: 0;
     top: 50%;
     transform: translateY(-50%);
 }
@@ -74,14 +78,14 @@
 }
 
 .travel-card img {
-    height: 220px;
-    width: 350px;
+    width: 100%;
+    max-width: 350px;
     border-radius: 10px;
 }
 
 .travel-card p {
     font-size: 18px;
-    color: #0A2C47;;
+    color: #0A2C47;
     margin-top: 10px;
 }
 
@@ -91,6 +95,181 @@
 
 .travel-btn {
     padding: 8px 25px;
+}
+
+@media (max-width: 500px) {
+    .travel-header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .travel-header h3 {
+        margin-bottom: 15px;
+        font-size: 24px;
+    }
+
+    .search-field,
+    .travel-header .new-btn {
+        position: static;
+        transform: none;
+        margin-bottom: 10px;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .search-field form {
+        justify-content: center;
+        width: 90%;
+    }
+
+    .search-field input {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .travel-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .travel-card img {
+        height: 200px;
+    }
+}
+
+@media (min-width: 501px) and (max-width: 700px) {
+    .travel-header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .travel-header h3 {
+        margin-bottom: 15px;
+        font-size: 24px;
+    }
+
+    .search-field,
+    .travel-header .new-btn {
+        position: static;
+        transform: none;
+        margin-bottom: 10px;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .search-field form, .travel-header .new-btn {
+        justify-content: center;
+        width: 100%;
+        max-width: 350px;
+    }
+
+    .search-field input {
+        width: 100%;
+    }
+
+    .travel-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .travel-card img {
+        height: 220px;
+    }
+}
+
+@media (min-width: 701px) and (max-width: 900px) {
+    .travel-header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .travel-header h3 {
+        margin-bottom: 15px;
+    }
+
+    .search-field,
+    .travel-header .new-btn {
+        position: static;
+        transform: none;
+        margin-bottom: 10px;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .search-field form {
+        justify-content: center;
+        width: 100%;
+        max-width: 740px;
+    }
+
+    .search-field input {
+        width: 100%;
+    }
+
+    .travel-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .travel-card img {
+        height: 200px;
+    }
+}
+
+@media (min-width: 901px) and (max-width: 1050px) {
+    .travel-header {
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        position: relative;
+    }
+
+    .travel-header h3 {
+        text-align: center;
+        flex: 1;
+    }
+
+    .search-field,
+    .travel-header .new-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+
+        right: 0;
+    }
+
+    .travel-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .travel-card img {
+        height: 220px;
+    }
+}
+
+@media (min-width: 1051px) {
+    .travel-header {
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        position: relative;
+    }
+
+    .travel-header h3 {
+        text-align: center;
+        flex: 1;
+    }
+
+    .search-field,
+    .travel-header .new-btn {
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .travel-cards {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .travel-card img {
+        height: 220px;
+    }
 }
 
 .carousel {

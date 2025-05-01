@@ -3,7 +3,6 @@
     <div class="home-page">
         <div class="about-section">
             <h2>{{ __('messages.HomeStarted') }}</h2>
-            <h2>{{ __('messages.HomeStarted2') }}</h2>
             <button class="get-started-btn">
                 <a class="nav-link" href="{{ route('register') }}">{{ __('messages.Started') }}</a>
             </button>
@@ -27,6 +26,9 @@
                             </a>
                         </div>
                 @endforeach
+            </div>
+            <div class="destinations-footer">
+                <a href="{{ route('destinations') }}" class="explore-link">{{ __('messages.Explore') }}</a>
             </div>
         </div>
 
@@ -55,13 +57,13 @@
                     <h1>{{ __('messages.Step1') }}</h1>
                     <h3>{{ __('messages.Step1T') }}</h3>
                 </div>
-                <div class="guide-card highlighted">
-                    <h1>{{ __('messages.Step3') }}</h1>
-                    <h3>{{ __('messages.Step3T') }}</h3>
-                </div>
                 <div class="guide-card">
                     <h1>{{ __('messages.Step2') }}</h1>
                     <h3>{{ __('messages.Step2T') }}</h3>
+                </div>
+                <div class="guide-card highlighted">
+                    <h1>{{ __('messages.Step3') }}</h1>
+                    <h3>{{ __('messages.Step3T') }}</h3>
                 </div>
             </div>
         </div>

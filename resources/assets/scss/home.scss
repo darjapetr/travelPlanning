@@ -7,18 +7,15 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    height: 550px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
     color: #fff;
-    border-radius: 30px;
 }
 
 .about-section h2 {
-    font-size: 50px;
     margin-bottom: 20px;
     color: #0A2C47;
     text-shadow: -2px -3px 4px rgba(255, 255, 255, 0.6);
@@ -28,12 +25,9 @@
     background-color: #1A7BC9;
     border: none;
     color: white;
-    padding: 10px 20px;
-    font-size: 16px;
     cursor: pointer;
     border-radius: 20px;
     transition: background-color 0.3s ease;
-    margin-top: 20px;
 }
 
 .get-started-btn:hover {
@@ -58,16 +52,29 @@
     position: relative;
 }
 
+.destinations-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
 .destinations-header h3 {
-    font-size: 28px;
     color: #0A2C47;
     text-align: center;
 }
 
 .destinations-header .explore-link {
     position: absolute;
-    right: 85px;
     font-size: 16px;
+    color: #1A7BC9;
+    text-decoration: none;
+}
+
+.destinations-footer .explore-link {
+    position: absolute;
+    text-align: center;
+    font-size: 18px;
     color: #1A7BC9;
     text-decoration: none;
 }
@@ -131,7 +138,6 @@
 }
 
 .guide-card {
-    width: calc(33.33% - 20px);
     padding: 20px;
     background-color: #e3f2fd;
     border-radius: 10px;
@@ -140,13 +146,11 @@
 }
 
 .guide-card h1 {
-    font-size: 24px;
     color: #1A7BC9;
     margin-bottom: 10px;
 }
 
 .guide-card h3 {
-    font-size: 17px;
     color: #333;
     padding-top: 20px;
     padding-bottom: 10px;
@@ -162,3 +166,204 @@
     color: white;
 }
 
+@media (min-width: 1050px) {
+    .about-section {
+        height: 550px;
+        border-radius: 30px;
+    }
+
+    .about-section h2 {
+        font-size: 50px;
+        margin-right: 110px;
+        margin-left: 110px;
+    }
+
+    .get-started-btn {
+        font-size: 16px;
+        padding: 10px 20px;
+        margin-top: 20px;
+    }
+
+    .destinations-header h3,
+    .explore-section h3,
+    .guide-section h3 {
+        font-size: 28px;
+    }
+
+    .destinations-footer .explore-link {
+        display: none;
+    }
+
+    .destinations-header .explore-link {
+        right: 85px;
+    }
+
+    .guide-card {
+        width: calc(33.33% - 20px);
+    }
+
+    .guide-card h1 {
+        font-size: 24px;
+    }
+
+    .guide-card h3 {
+        font-size: 17px;
+    }
+}
+
+@media (max-width: 1049px) and (min-width: 800px) {
+    .about-section {
+        height: 450px;
+        border-radius: 25px;
+    }
+
+    .about-section h2 {
+        font-size: 40px;
+        margin-right: 50px;
+        margin-left: 50px;
+    }
+
+    .get-started-btn {
+        font-size: 15px;
+        padding: 9px 19px;
+        margin-top: 20px;
+    }
+
+    .destinations-header h3,
+    .explore-section h3,
+    .guide-section h3 {
+        font-size: 26px;
+    }
+
+    .destinations-footer .explore-link {
+        display: none;
+    }
+
+    .destinations-header .explore-link {
+        right: 50px;
+    }
+
+    .guide-card {
+        width: calc(33.33% - 20px);
+    }
+
+    .guide-card h1 {
+        font-size: 22px;
+    }
+
+    .guide-card h3 {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 799px) and (min-width: 500px) {
+    .about-section {
+        height: 350px;
+        border-radius: 20px;
+    }
+
+    .about-section h2 {
+        font-size: 30px;
+        margin-right: 50px;
+        margin-left: 50px;
+    }
+
+    .get-started-btn {
+        font-size: 14px;
+        padding: 8px 18px;
+        margin-top: 16px;
+    }
+
+    .destinations-header h3,
+    .explore-section h3,
+    .guide-section h3 {
+        font-size: 24px;
+    }
+
+    .destinations-header .explore-link {
+        display: none;
+    }
+
+    .destinations-footer {
+        margin-top: 20px;
+        margin-bottom: 60px;
+    }
+
+    .explore-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .guide-steps {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .guide-card {
+        width: 90%;
+    }
+
+    .guide-card h1 {
+        font-size: 20px;
+    }
+
+    .guide-card h3 {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 499px) {
+    .about-section {
+        height: 250px;
+        border-radius: 15px;
+    }
+
+    .about-section h2 {
+        font-size: 20px;
+        margin-right: 30px;
+        margin-left: 30px;
+    }
+
+    .get-started-btn {
+        font-size: 12px;
+        padding: 7px 17px;
+        margin-top: 12px;
+    }
+
+    .destinations-header h3,
+    .explore-section h3,
+    .guide-section h3 {
+        font-size: 22px;
+    }
+
+    .destinations-header .explore-link {
+        display: none;
+    }
+
+    .destinations-footer {
+        margin-top: 20px;
+        margin-bottom: 60px;
+    }
+
+    .explore-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .guide-steps {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .guide-card {
+        width: 90%;
+    }
+
+    .guide-card h1 {
+        font-size: 18px;
+    }
+
+    .guide-card h3 {
+        font-size: 14px;
+    }
+}

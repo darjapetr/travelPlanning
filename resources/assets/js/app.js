@@ -10,3 +10,9 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
+window.toggleMobileMenu = function () {
+    const menu = document.getElementById('mobileMenu');
+    menu.classList.toggle('open');
+};
+
+
